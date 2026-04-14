@@ -25,7 +25,7 @@ const ProductDetails = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/products/${id}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/${id}`);
       if (res.data.success) {
         setProduct(res.data.product);
         setEditData(res.data.product);
@@ -50,7 +50,7 @@ const ProductDetails = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.put(
-        `http://localhost:8080/api/products/delete-image/${id}`,
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/delete-image/${id}`,
         { imagePath: imageToDelete },
         { headers: { "x-auth-token": token } }
       );
@@ -76,7 +76,7 @@ const ProductDetails = () => {
     
     try {
       const res = await axios.put(
-        `http://localhost:8080/api/products/edit/${id}`,
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/edit/${id}`,
         formData,
         {
           headers: {
@@ -100,7 +100,7 @@ const ProductDetails = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.put(
-        `http://localhost:8080/api/products/edit/${id}`,
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/edit/${id}`,
         editData,
         { headers: { "x-auth-token": token } }
       );

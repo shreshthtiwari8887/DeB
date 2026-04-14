@@ -19,7 +19,7 @@ const Marketplace = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/products/all");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/all`);
 
       // ⭐ Backend data ko UI format mein convert kar rahe hain
       const formatted = res.data.products.map((p) => ({

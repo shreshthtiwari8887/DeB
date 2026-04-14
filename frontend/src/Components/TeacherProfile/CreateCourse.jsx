@@ -49,7 +49,7 @@ const CreateCourse = () => {
     try {
       // STEP 1: CREATE COURSE
       const createRes = await fetch(
-        "http://localhost:8080/api/courses/create",
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/create`,
         {
           method: "POST",
           headers: {
@@ -69,7 +69,7 @@ const CreateCourse = () => {
 
       // STEP 2: PUBLISH COURSE
       await fetch(
-        `http://localhost:8080/api/courses/${createdCourse.course._id}/publish`,
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${createdCourse.course._id}/publish`,
         {
           method: "PATCH",
           headers: {

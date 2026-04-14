@@ -28,14 +28,14 @@ const ManageCourse = () => {
             return thumbnail; // Cloudinary
         }
 
-        return `http://localhost:8080/${thumbnail}`; // Local
+        return `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/${thumbnail}`; // Local
     };
 
     /* ===========================
        FETCH COURSE DETAILS
     =========================== */
     const fetchCourse = async () => {
-        const res = await fetch(`http://localhost:8080/api/courses/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}`);
         const data = await res.json();
         setCourse(data);
     };
@@ -66,10 +66,10 @@ const ManageCourse = () => {
             let method;
 
             if (editingLectureId) {
-                url = `http://localhost:8080/api/courses/${id}/lecture/${editingLectureId}`;
+                url = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}/lecture/${editingLectureId}`;
                 method = "PUT";
             } else {
-                url = `http://localhost:8080/api/courses/${id}/add-lecture`;
+                url = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}/add-lecture`;
                 method = "POST";
             }
 
@@ -123,7 +123,7 @@ const ManageCourse = () => {
         if (!confirmDelete) return;
 
         await fetch(
-            `http://localhost:8080/api/courses/${id}/lecture/${lectureId}`,
+            `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}/lecture/${lectureId}`,
             {
                 method: "DELETE",
                 headers: { "x-auth-token": token }
@@ -158,7 +158,7 @@ const ManageCourse = () => {
     =========================== */
     const handleTogglePublish = async () => {
         await fetch(
-            `http://localhost:8080/api/courses/${id}/publish`,
+            `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}/publish`,
             {
                 method: "PATCH",
                 headers: { "x-auth-token": token }

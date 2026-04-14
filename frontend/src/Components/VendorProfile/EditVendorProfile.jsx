@@ -26,7 +26,7 @@ const EditVendorProfile = () => {
     const fetchVendor = async () => {
       try {
         const res = await fetch(
-          "http://localhost:8080/api/marketplace/vendor/me",
+          `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/marketplace/vendor/me`,
           { headers: { "x-auth-token": token } }
         );
 
@@ -65,7 +65,7 @@ const EditVendorProfile = () => {
 
     try {
       const res = await fetch(
-        "http://localhost:8080/api/marketplace/vendor/update",
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/marketplace/vendor/update`,
         {
           method: "PUT",
           headers: {

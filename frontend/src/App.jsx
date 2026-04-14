@@ -28,6 +28,7 @@ import ProductDetails from "./Components/VendorProfile/ProductDetails";
 import { CartProvider } from "./Components/Cart/CartContext";
 import AdminDashboard from "./Components/Admin/AdminDashboard";
 import AdminRoute from "./Components/Admin/AdminRoute";
+import StateDetail from "./Components/States/StateDetail";
 
 import "./App.css";
 import L from "leaflet";
@@ -91,6 +92,7 @@ function App() {
                 />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/course/:id" element={<CourseDetails />} />
+                <Route path="/state/:name" element={<StateDetail />} />
 
                 {/* ✅ USER PROFILE */}
                 {/* <Route path="/profile" element={<Profile />} /> */}

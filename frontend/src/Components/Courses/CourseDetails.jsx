@@ -22,21 +22,21 @@ const CourseDetails = () => {
     }
 
     // Local (old images)
-    return `http://localhost:8080/${thumbnail}`;
+    return `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/${thumbnail}`;
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const courseRes = await fetch(
-          `http://localhost:8080/api/courses/${id}`
+          `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}`
         );
         const courseData = await courseRes.json();
         setCourse(courseData);
 
         if (token) {
           const userRes = await fetch(
-            "http://localhost:8080/api/users/me",
+            `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/me`,
             { headers: { "x-auth-token": token } }
           );
           const userData = await userRes.json();

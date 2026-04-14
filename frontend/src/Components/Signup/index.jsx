@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import styles from "./styles.module.css";
 import { FaEye, FaEyeSlash, FaCloudUploadAlt } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Signup = () => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
@@ -60,7 +62,7 @@ const Signup = () => {
       }
 
       // 2. API Call to Backend (Sirf EK baar call karein)
-      const url = "http://localhost:8080/api/users";
+      const url = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users`;
       const payload = { ...data, documentUrl };
       
       const response = await axios.post(url, payload);
@@ -87,18 +89,18 @@ const Signup = () => {
     <div className={styles.signup_container}>
       <div className={styles.signup_form_container}>
         <div className={styles.left}>
-          <h1>Welcome Back</h1>
+          <h1>{t("Welcome Back")}</h1>
           <Link to="/login">
-            <button type="button" className={styles.white_btn}>Sign In</button>
+            <button type="button" className={styles.white_btn}>{t("Sign In")}</button>
           </Link>
         </div>
         <div className={styles.right}>
           <form className={styles.form_container} onSubmit={handleSubmit}>
-            <h1>Create Account</h1>
+            <h1>{t("Create Account")}</h1>
 
             <input
               type="text"
-              placeholder="First Name"
+              placeholder={t("First Name")}
               name="firstName"
               value={data.firstName}
               onChange={handleChange}
@@ -108,7 +110,7 @@ const Signup = () => {
 
             <input
               type="text"
-              placeholder="Last Name"
+              placeholder={t("Last Name")}
               name="lastName"
               value={data.lastName}
               onChange={handleChange}
@@ -118,7 +120,7 @@ const Signup = () => {
 
             <input
               type="email"
-              placeholder="Email"
+              placeholder={t("Email")}
               name="email"
               value={data.email}
               onChange={handleChange}
@@ -129,7 +131,7 @@ const Signup = () => {
             <div className={styles.password_wrapper}>
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
+                placeholder={t("Password")}
                 name="password"
                 value={data.password}
                 onChange={handleChange}
@@ -145,7 +147,7 @@ const Signup = () => {
               <>
                 <input
                   type="text"
-                  placeholder="Expertise"
+                  placeholder={t("Expertise")}
                   name="expertise"
                   value={data.expertise}
                   onChange={handleChange}
@@ -153,7 +155,7 @@ const Signup = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Experience"
+                  placeholder={t("Experience")}
                   name="experience"
                   value={data.experience}
                   onChange={handleChange}
@@ -166,7 +168,7 @@ const Signup = () => {
               <>
                 <input
                   type="text"
-                  placeholder="Shop Name"
+                  placeholder={t("Shop Name")}
                   name="shopName"
                   value={data.shopName}
                   onChange={handleChange}
@@ -175,7 +177,7 @@ const Signup = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Phone"
+                  placeholder={t("Phone")}
                   name="phone"
                   value={data.phone}
                   onChange={handleChange}
@@ -189,7 +191,7 @@ const Signup = () => {
             {(data.role === "vendor") && (
               <div className={styles.file_upload_wrapper}>
                 <label htmlFor="doc">
-                   <FaCloudUploadAlt /> Upload Aadhar or Shop License(mandatory)
+                   <FaCloudUploadAlt /> {t("Upload Aadhar or Shop License(mandatory)")}
                 </label>
                 <input 
                   type="file" 
@@ -215,7 +217,7 @@ const Signup = () => {
             {error && <div className={styles.error_msg}>{error}</div>}
 
             <button type="submit" className={styles.green_btn} disabled={uploading}>
-              {uploading ? "Uploading..." : "Sign Up"}
+              {uploading ? t("Uploading...") : t("Sign Up")}
             </button>
           </form>
         </div>

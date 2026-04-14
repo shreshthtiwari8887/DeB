@@ -2,16 +2,42 @@ import React, { useEffect, useState, useRef } from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import axios from "axios";
 import stateCulturalData from '../../assets/Culturalinfo';
-import './Map.css'; 
+import './Map.css';
+import { useTranslation } from 'react-i18next'; 
 
 const IndiaMap = () => {
   const [indiaGeoJSON, setIndiaGeoJSON] = useState(null);
+  const [statesData, setStatesData] = useState(stateCulturalData);
   const mapRef = useRef(null);
   const popupRefs = useRef({});
   const selectedLayer = useRef(null);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
+    // Fetch states data from API
+    axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/states`)
+      .then((response) => {
+        const data = { ...stateCulturalData };
+        response.data.forEach(state => {
+          const localImages = stateCulturalData[state.name]?.images || [];
+          const dbImages = state.images || [];
+          const finalImages = dbImages.length > 0 ? dbImages : localImages;
+          
+          data[state.name] = {
+            description: state.description,
+            description_hi: state.description_hi,
+            images: finalImages
+          };
+        });
+        setStatesData(data);
+      })
+      .catch((error) => {
+        console.error("States API failed, using local fallback:", error);
+      });
+
+    // Fetch GeoJSON
     fetch("https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson")
       .then((response) => response.json())
       .then((data) => {
@@ -75,13 +101,15 @@ const IndiaMap = () => {
         selectedLayer.current = layer;
         mapRef.current.setView(layer.getBounds().getCenter(), 6);
 
-        const culturalInfo = stateCulturalData[stateName] || stateCulturalData["default"];
+        const culturalInfo = statesData[stateName] || { description: t("Cultural information coming soon."), images: [] };
+        const isHindi = i18n.language === 'hi';
+        const displayDescription = (isHindi && culturalInfo.description_hi) ? culturalInfo.description_hi : culturalInfo.description;
         
         const popupContent = `
           <div class="cultural-popup">
-            <h3>${stateName}</h3>
+            <h3>${t(stateName + '.name') || stateName}</h3>
             <div class="popup-scroll">
-              <p>${culturalInfo.description}</p>
+              <p><a class="state-link" href="/state/${encodeURIComponent(stateName)}">${t(stateName + '.description') || displayDescription}</a></p>
             </div>
             <div id="slideshow-${stateName.replace(/\s+/g, '-')}" class="slideshow-container">
               ${culturalInfo.images.map((img, index) => `
@@ -128,7 +156,7 @@ const IndiaMap = () => {
 
   return (
     <div className="map-wrapper">
-      <button className="reset-btn" onClick={() => mapRef.current.setView([23.5937, 78.9629], 4)}>Reset View</button>
+      <button className="reset-btn" onClick={() => mapRef.current.setView([23.5937, 78.9629], 4)}>{t("Reset View")}</button>
       
       <MapContainer
         ref={mapRef}

@@ -35,6 +35,91 @@
   font-weight: 600;
 }
 
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.admin-tabs button {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.admin-tabs button.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.admin-tabs button:hover {
+  background: #e2e8f0;
+}
+
+.admin-tabs button.active:hover {
+  background: #2563eb;
+}
+
+/* State Form */
+.state-form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.state-form input, .state-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.state-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.form-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-buttons button[type="submit"] {
+  background: #10b981;
+  color: white;
+}
+
+.form-buttons button[type="button"] {
+  background: #ef4444;
+  color: white;
+}
+
 /* Stats */
 .stats-grid {
   display: flex;
@@ -92,6 +177,9 @@
 .table-header {
   padding: 20px;
   border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .table-header h2 {
   font-size: 1.2rem;
@@ -99,6 +187,19 @@
   align-items: center;
   gap: 10px;
   margin: 0;
+}
+
+.btn-add {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .modern-admin-table {

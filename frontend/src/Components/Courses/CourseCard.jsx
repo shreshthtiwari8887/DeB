@@ -16,7 +16,7 @@ const CourseCard = ({ course, isEnrolled }) => {
     }
 
     // Local image (old data)
-    return `http://localhost:8080/${thumbnail}`;
+    return `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/${thumbnail}`;
   };
 
   return (

@@ -1,0 +1,89 @@
+.state-detail-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: calc(100vh - 120px);
+  background: #f6f8fb;
+}
+
+.state-detail-card {
+  width: min(1100px, 100%);
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+.state-detail-header h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #232323;
+}
+
+.state-detail-subtitle {
+  margin: 12px 0 0;
+  color: #5b5b5b;
+  font-size: 1rem;
+  max-width: 760px;
+}
+
+.state-detail-content {
+  margin-top: 30px;
+  display: grid;
+  gap: 32px;
+}
+
+.state-detail-description h2,
+.state-detail-gallery h2 {
+  margin-bottom: 14px;
+  color: #1d1d1d;
+}
+
+.state-detail-description p {
+  color: #4a4a4a;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.state-detail-gallery .image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.detail-image {
+  width: 100%;
+  min-height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.state-detail-actions {
+  margin-top: 28px;
+}
+
+.detail-back-link {
+  display: inline-block;
+  color: #ff5733;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.detail-back-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .state-detail-card {
+    padding: 24px;
+  }
+
+  .state-detail-content {
+    gap: 22px;
+  }
+
+  .state-detail-header h1 {
+    font-size: 2rem;
+  }
+}

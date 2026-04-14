@@ -19,7 +19,7 @@ const ProductManager = ({ token }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/products/my-products", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/my-products`, {
         headers: { "x-auth-token": token },
       });
       setProducts(res.data.products);
@@ -43,7 +43,7 @@ const ProductManager = ({ token }) => {
       }
     }
     try {
-      const res = await axios.post("http://localhost:8080/api/products/add", data, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/add`, data, {
         headers: { "x-auth-token": token, "Content-Type": "multipart/form-data" },
       });
       setProducts([res.data.product, ...products]);
@@ -57,7 +57,7 @@ const ProductManager = ({ token }) => {
   const confirmDelete = async () => {
     const id = showDeleteModal;
     try {
-      await axios.delete(`http://localhost:8080/api/products/delete/${id}`, { 
+      await axios.delete(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products/delete/${id}`, { 
         headers: { "x-auth-token": token } 
       });
       setProducts(products.filter((p) => p._id !== id));

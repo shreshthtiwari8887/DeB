@@ -16,7 +16,7 @@ const CoursePage = () => {
            FETCH ALL PUBLISHED COURSES
         =========================== */
         const courseRes = await fetch(
-          "http://localhost:8080/api/courses"
+          `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses`
         );
         const courseData = await courseRes.json();
 
@@ -27,7 +27,7 @@ const CoursePage = () => {
         =========================== */
         if (token) {
           const userRes = await fetch(
-            "http://localhost:8080/api/users/me",
+            `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/me`,
             {
               headers: { "x-auth-token": token }
             }

@@ -21,7 +21,7 @@ const TeacherProfile = () => {
 
   const fetchData = async () => {
     try {
-      const userRes = await fetch("http://localhost:8080/api/users/me", {
+      const userRes = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/me`, {
         headers: { "x-auth-token": token }
       });
       const userData = await userRes.json();
@@ -37,7 +37,7 @@ const TeacherProfile = () => {
       });
 
       const courseRes = await fetch(
-        "http://localhost:8080/api/courses/teacher",
+        `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/teacher`,
         {
           headers: { "x-auth-token": token }
         }
@@ -68,7 +68,7 @@ const TeacherProfile = () => {
     e.preventDefault();
 
     try {
-      await fetch("http://localhost:8080/api/users/update", {
+      await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const TeacherProfile = () => {
     if (!confirmDelete) return;
 
     try {
-      await fetch(`http://localhost:8080/api/courses/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}`, {
         method: "DELETE",
         headers: { "x-auth-token": token }
       });
@@ -104,7 +104,7 @@ const TeacherProfile = () => {
 
   const handlePublish = async (id) => {
     try {
-      await fetch(`http://localhost:8080/api/courses/${id}/publish`, {
+      await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}/publish`, {
         method: "PATCH",
         headers: { "x-auth-token": token }
       });
@@ -125,7 +125,7 @@ const TeacherProfile = () => {
     }
 
     // Local storage
-    return `http://localhost:8080/${thumbnail}`;
+    return `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/${thumbnail}`;
   };
 
   return (

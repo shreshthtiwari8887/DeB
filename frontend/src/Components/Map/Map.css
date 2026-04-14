@@ -55,6 +55,15 @@
   text-align: justify;
   line-height: 1.2;
 }
+
+.custom-popup a.state-link {
+  color: #ff5733;
+  text-decoration: none;
+}
+
+.custom-popup a.state-link:hover {
+  text-decoration: underline;
+}
 .reset-btn {
   position: absolute; 
   top: 380px; 

@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
       return;
     }
     try {
-      const res = await axios.get("http://localhost:8080/api/cart", getHeaders());
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/cart`, getHeaders());
       
       // ⭐ DATA CONSISTENCY CHECK
       // Filters out items that have been deleted or have corrupted paths
@@ -42,21 +42,21 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     try {
-      const res = await axios.post("http://localhost:8080/api/cart/add", { product }, getHeaders());
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/cart/add`, { product }, getHeaders());
       setCart(res.data);
     } catch (err) { console.error("Add error", err); }
   };
 
   const removeFromCart = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:8080/api/cart/remove/${id}`, getHeaders());
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/cart/remove/${id}`, getHeaders());
       setCart(res.data);
     } catch (err) { console.error("Remove error", err); }
   };
 
   const clearCart = async () => {
     try {
-      const res = await axios.delete("http://localhost:8080/api/cart/clear", getHeaders());
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/cart/clear`, getHeaders());
       setCart(res.data);
     } catch (err) { console.error("Clear error", err); }
   };

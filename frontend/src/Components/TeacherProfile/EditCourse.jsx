@@ -19,7 +19,7 @@ const EditCourse = () => {
   const [thumbnail, setThumbnail] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/courses/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}`)
       .then(res => res.json())
       .then(data => {
         setCourseData({
@@ -49,7 +49,7 @@ const EditCourse = () => {
     }
 
     const res = await fetch(
-      `http://localhost:8080/api/courses/${id}`,
+      `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/courses/${id}`,
       {
         method: "PUT",
         headers: {

@@ -15,7 +15,7 @@ const Cart = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:8080/api/users/me", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/me`, {
           headers: { "x-auth-token": token }
         });
         setUserCoins(res.data.coins || 0);

@@ -97,7 +97,7 @@ function Quiz(props) {
       const token = localStorage.getItem("token");
       const topic = quiz_data[props.index].topic;
   
-      const response = await fetch("http://localhost:8080/api/quiz/submit", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/quiz/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

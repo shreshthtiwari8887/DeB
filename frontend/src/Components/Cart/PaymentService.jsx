@@ -15,7 +15,7 @@ export const initiateRazorpayPayment = async ({
   try {
     // 1. Create order on backend
     const { data } = await axios.post(
-      "http://localhost:8080/api/payment/create-order",
+      `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/payment/create-order`,
       { amount },
       getHeaders()
     );
@@ -37,7 +37,7 @@ export const initiateRazorpayPayment = async ({
         try {
          // 3. Verify payment on backend
           const verifyRes = await axios.post(
-            "http://localhost:8080/api/payment/verify",
+            `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/payment/verify`,
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,

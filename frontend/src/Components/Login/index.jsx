@@ -5,8 +5,10 @@ import { useSnackbar } from "notistack";
 import styles from "./styles.module.css";
 import { useCart } from "../Cart/CartContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+    const { t } = useTranslation();
     const { fetchCart } = useCart();
     const [showPassword, setShowPassword] = useState(false);
 
@@ -32,7 +34,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/api/auth";
+            const url = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/auth`;
             const response = await axios.post(url, data);
 
 			//VERY IMPORTANT: extract correct structure
@@ -73,11 +75,11 @@ const Login = () => {
             <div className={styles.login_form_container}>
                 <div className={styles.left}>
                     <form className={styles.form_container} onSubmit={handleSubmit}>
-                        <h1>Login</h1>
+                        <h1>{t("Login")}</h1>
 
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder={t("Email")}
                             name="email"
                             onChange={handleChange}
                             value={data.email}
@@ -89,7 +91,7 @@ const Login = () => {
                         <div className={styles.password_wrapper}>
                             <input
                                 type={showPassword ? "text" : "password"}
-                                placeholder="Password"
+                                placeholder={t("Password")}
                                 name="password"
                                 onChange={handleChange}
                                 value={data.password}
@@ -104,16 +106,16 @@ const Login = () => {
                         {error && <div className={styles.error_msg}>{error}</div>}
 
                         <button type="submit" className={styles.green_btn}>
-                            Sign In
+                            {t("Sign In")}
                         </button>
                     </form>
                 </div>
 
                 <div className={styles.right}>
-                    <h1>New Here?</h1>
+                    <h1>{t("New Here?")}</h1>
                     <Link to="/signup">
                         <button type="button" className={styles.white_btn}>
-                            Sign Up
+                            {t("Sign Up")}
                         </button>
                     </Link>
                 </div>

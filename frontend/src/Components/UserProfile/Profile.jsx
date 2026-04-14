@@ -35,7 +35,7 @@ const Profile = () => {
       email: localStorage.getItem("email") || "N/A",
     }));
 
-    fetch("http://localhost:8080/api/users/me", {
+    fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/me`, {
       headers: { "x-auth-token": token },
     })
       .then((res) => res.json())
@@ -54,7 +54,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.put("http://localhost:8080/api/users/update", formData, {
+      await axios.put(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/users/update`, formData, {
         headers: { "x-auth-token": token },
       });
       setUserDetails({ ...userDetails, ...formData });

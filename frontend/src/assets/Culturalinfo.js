@@ -10,232 +10,232 @@ import himanchal from './himanchal.gif'
 import himanchal2 from './himanchal2.gif'
 import uttrakhand from './uttrakhand.gif'
 import kedarnath from './kedarnath.jpg'
+import art from './Art.jpg'
+import artCulture from './Artculture.jpg'
+import culture from './culture.jpg'
+import dance from './dance.jpg'
+import festival from './festival.jpeg'
+import food from './Food1.jpg'
+import ganesh from './ganesh.jpg'
+import gangaArti from './GangaArti.jpg'
+import durga from './durga.jpg'
+import history from './history.png'
+import indianHistory from './Indianhistory1.jpg'
+import keralaMural from './Kerala-Mural 1.png'
+import handicraft from './handicraft_clg 1.png'
+import tajMahal from './taj-mahal.png'
+import literature from './literature.webp'
+import cultureDance from './culture-dance.svg'
+import cultureFestival from './culture-festival.svg'
+import cultureHeritage from './culture-heritage.svg'
+import cultureArtisan from './culture-artisan.svg'
+import cultureMountain from './culture-mountain.svg'
+import cultureSilk from './culture-silk.svg'
+import cultureBoat from './culture-boat.svg'
+import cultureTemple from './culture-temple.svg'
+import cultureMusic from './culture-music.svg'
+import cultureRoyal from './culture-royal.svg'
 
 
 
 const stateCulturalData = {
   "Andhra Pradesh": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of Kuchipudi dance, Tirupati temple, and rich temple architecture."
+    name: 'Andhra Pradesh',
+    description:
+      'Andhra Pradesh is known for Kuchipudi dance, Tirupati temple, spicy cuisine, and coastal traditions.',
+    images: [food, cultureTemple, cultureDance],
   },
   "Arunachal Pradesh": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Home to 26 tribes, vibrant festivals, and scenic Himalayan beauty."
+    name: 'Arunachal Pradesh',
+    description:
+      'Arunachal Pradesh is home to 26 tribes, vibrant festivals, and scenic Himalayan beauty.',
+    images: [festival, culture, cultureMountain],
   },
   "Assam": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Famous for Bihu festival, Assam tea, silk, and the Brahmaputra River."
+    name: 'Assam',
+    description:
+      'Assam is famous for Bihu, tea gardens, silk weaving, and the Brahmaputra River.',
+    images: [cultureSilk, festival, gangaArti],
   },
   "Bihar": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Cradle of Buddhism, home to Nalanda University and ancient heritage."
+    name: 'Bihar',
+    description:
+      'Bihar is the cradle of Buddhism, home to Nalanda University, Chhath Puja, and ancient heritage.',
+    images: [history, cultureFestival, culture],
   },
   "Chhattisgarh": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Known for tribal art, Chitrakote falls, and unique cultural traditions."
+    name: 'Chhattisgarh',
+    description:
+      'Chhattisgarh is known for tribal art, forest festivals, ancient temples, and rich folk culture.',
+    images: [cultureArtisan, festival, history],
   },
   "Goa": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Blend of Indian and Portuguese cultures, known for beaches and churches."
+    name: 'Goa',
+    description:
+      'Goa blends Indian and Portuguese cultures, famous for beaches, seafood, churches, and Carnival.',
+    images: [cultureFestival, cultureBoat, food],
   },
   "Gujarat": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Famous for Garba dance, Gir lions, and vibrant handicrafts."
+    name: 'Gujarat',
+    description:
+      'Gujarat is famous for Garba dance, Dandiya, the Rann of Kutch, and colourful handicrafts.',
+    images: [cultureDance, handicraft, festival],
   },
   "Haryana": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of Mahabharata’s Kurukshetra and rich Haryanvi traditions."
+    name: 'Haryana',
+    description:
+      'Haryana is known for rural fairs, wrestling traditions, hearty cuisine, and folk dance.',
+    images: [cultureDance, history, culture],
   },
   "Himachal Pradesh": {
-    images: [
-      himanchal,
-      himanchal2
-    ],
-    description: "Abode of snow-capped peaks, Buddhist monasteries, and apple orchards."
+    name: 'Himachal Pradesh',
+    description:
+      'Himachal Pradesh is celebrated for Himalayan landscapes, hill temples, and apple orchards.',
+    images: [himanchal, himanchal2, cultureMountain],
   },
   "Jharkhand": {
-    images: [
-      rajasthan,
-      rajasthan2],
-    description: "Land of forests, tribal festivals, and ancient rock art."
+    name: 'Jharkhand',
+    description:
+      'Jharkhand is known for tribal festivals, waterfalls, handicrafts, and mineral-rich forests.',
+    images: [cultureArtisan, cultureMountain, culture],
   },
   "Karnataka": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Home to Hampi ruins, Carnatic music, and classical dance forms."
+    name: 'Karnataka',
+    description:
+      'Karnataka celebrates Hampi ruins, Carnatic music, sandalwood, and classical dance traditions.',
+    images: [art, cultureHeritage, cultureMusic],
   },
   "Kerala": {
-    images: [
-      kerela, 
-      kerela2
-    ],
-    description: "God's own country with Kathakali, backwaters, and Ayurvedic heritage."
+    name: 'Kerala',
+    description:
+      'Kerala is known for backwaters, Kathakali, Ayurveda, spices, and temple festivals.',
+    images: [kerela, kerela2, keralaMural],
   },
   "Madhya Pradesh": {
-    images: [
-     madhyapradesh2, 
-     madhyapradesh
-    ],
-    description: "Heart of India with Khajuraho temples and tribal richness."
+    name: 'Madhya Pradesh',
+    description:
+      'Madhya Pradesh is the heart of India with Khajuraho temples, wildlife parks, and tribal art.',
+    images: [madhyapradesh, madhyapradesh2, history],
   },
   "Maharashtra": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Known for Ganesh Chaturthi, forts of Shivaji, and vibrant folk arts."
+    name: 'Maharashtra',
+    description:
+      'Maharashtra is home to Bollywood, forts, Ganesh Chaturthi celebrations, and rich folk arts.',
+    images: [ganesh, artCulture, cultureFestival],
   },
   "Manipur": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of Ras Lila dance, Loktak Lake, and rich Manipuri culture."
+    name: 'Manipur',
+    description:
+      'Manipur is famous for Ras Lila dance, Loktak Lake, and Meitei culture.',
+    images: [cultureDance, festival, culture],
   },
   "Meghalaya": {
-    images: [
-    meghalaya,
-    meghalaya2
-    ],
-    description: "Land of clouds, living root bridges, and unique Khasi traditions."
+    name: 'Meghalaya',
+    description:
+      'Meghalaya is the land of clouds, living root bridges, Khasi traditions, and monsoon festivals.',
+    images: [meghalaya, meghalaya2, cultureMountain],
   },
   "Mizoram": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of bamboo dance (Cheraw) and vibrant tribal culture."
+    name: 'Mizoram',
+    description:
+      'Mizoram is known for bamboo dance, colorful festivals, and vibrant tribal culture.',
+    images: [cultureDance, festival, culture],
   },
   "Nagaland": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of festivals, warrior tribes, and Hornbill celebration."
+    name: 'Nagaland',
+    description:
+      'Nagaland is celebrated for its Hornbill Festival, warrior heritage, and tribal crafts.',
+    images: [festival, cultureArtisan, culture],
   },
   "Odisha": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Famous for Odissi dance, Jagannath temple, and tribal crafts."
+    name: 'Odisha',
+    description:
+      'Odisha is famous for Odissi dance, Jagannath Temple, silver filigree, and temple rituals.',
+    images: [artCulture, cultureTemple, festival],
   },
   "Punjab": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of Bhangra, Golden Temple, and rich Sikh heritage."
+    name: 'Punjab',
+    description:
+      'Punjab is known for Bhangra, Golden Temple, hearty cuisine, and Sikh heritage.',
+    images: [food, cultureDance, festival],
   },
   "Rajasthan": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "The land of Maharajas, forts, desert, and vibrant folk traditions."
+    name: 'Rajasthan',
+    description:
+      'Rajasthan is the land of maharajas, desert forts, royal festivals, and vibrant folk traditions.',
+    images: [rajasthan, rajasthan2, cultureRoyal],
   },
   "Sikkim": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Scenic beauty, monasteries, and blend of Buddhist and Nepali culture."
+    name: 'Sikkim',
+    description:
+      'Sikkim is known for Buddhist monasteries, alpine landscapes, and Nepali cultural blend.',
+    images: [history, festival, culture],
   },
   "Tamil Nadu": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Home to Bharatanatyam, ancient temples, and classical Carnatic music."
+    name: 'Tamil Nadu',
+    description:
+      'Tamil Nadu is home to Bharatanatyam, Dravidian temples, Carnatic music, and silk weaving.',
+    images: [cultureDance, cultureTemple, cultureSilk],
   },
   "Telangana": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Blend of Telugu and Persian cultures, known for Charminar and festivals."
+    name: 'Telangana',
+    description:
+      'Telangana blends Charminar heritage, pearl crafts, rich festivals, and spicy cuisine.',
+    images: [cultureArtisan, cultureFestival, history],
   },
   "Tripura": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of tribal diversity, temples, and traditional bamboo crafts."
+    name: 'Tripura',
+    description:
+      'Tripura celebrates tribal diversity, bamboo crafts, temples, and regional dance forms.',
+    images: [artCulture, festival, culture],
   },
   "Uttar Pradesh": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Spiritual heart of India with Ganga, Varanasi, and Taj Mahal."
+    name: 'Uttar Pradesh',
+    description:
+      'Uttar Pradesh is the spiritual heartland with the Ganges, Varanasi, and the Taj Mahal.',
+    images: [gangaArti, tajMahal, history],
   },
   "Uttaranchal": {
-    images: [
-      uttrakhand,
-      kedarnath
-    ],
-    description: "Land of gods (Devbhoomi), Himalayas, and sacred pilgrimage sites."
+    name: 'Uttarakhand',
+    description:
+      'Uttarakhand is revered as Devbhoomi, with mountain temples, yoga retreats, and sacred pilgrimages.',
+    images: [uttrakhand, kedarnath, cultureTemple],
   },
   "West Bengal": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of Durga Puja, Bengali literature, and classical music."
+    name: 'West Bengal',
+    description:
+      'West Bengal is famous for Durga Puja, Bengali literature, classical music, and terracotta artistry.',
+    images: [durga, literature, cultureFestival],
   },
   "Delhi": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Capital city rich in Mughal heritage, monuments, and cultural fusion."
+    name: 'Delhi',
+    description:
+      'Delhi is the capital where Mughal monuments, colonial architecture, markets, and cultural fusion meet.',
+    images: [history, artCulture, culture],
   },
   "Ladakh": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Land of high passes, monasteries, and stunning Himalayan landscapes."
+    name: 'Ladakh',
+    description:
+      'Ladakh is known for high-altitude deserts, Buddhist monasteries, and nomadic mountain culture.',
+    images: [kedarnath, himanchal, cultureMountain],
   },
   "Jammu and Kashmir": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Paradise on Earth with rich traditions and breathtaking valleys."
+    name: 'Jammu and Kashmir',
+    description:
+      'Jammu and Kashmir is celebrated for scenic valleys, houseboats, saffron fields, and rich traditions.',
+    images: [kedarnath, gangaArti, culture],
+  },
+  "Puducherry": {
+    name: 'Puducherry',
+    description:
+      'Puducherry blends French colonial charm, coastal serenity, yoga retreats, and local crafts.',
+    images: [indianHistory, artCulture, culture],
   },
   "default": {
-    images: [
-      rajasthan,
-      rajasthan2
-    ],
-    description: "Explore the rich cultural heritage of this region."
-  }
+    name: 'India',
+    description:
+      'India is rich in cultural diversity, with traditions spanning art, music, festivals, food, and spirituality.',
+    images: [culture, history, festival],
+  },
 };
 export default stateCulturalData
