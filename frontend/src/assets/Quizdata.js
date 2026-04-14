@@ -1,6 +1,6 @@
 import festival from './festival.jpeg'
 import culture  from './culture.jpg'
-import food  from './food1.jpg'
+import food  from './Food1.jpg'
 import heritage  from './heritagesite.jpg'
 import history  from './history.png'
 import literature  from './literature.webp'
