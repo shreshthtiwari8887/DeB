@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import quiz_data from '../../assets/QuizData'
+import quiz_data from '../../assets/Quizdata'
 import Quiz from './Quiz'
 
 function QuizCard({sendIndex}) {

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import quiz_data from '../../assets/QuizData';
+import quiz_data from '../../assets/Quizdata';
 import Swal from "sweetalert2";
 import "./Quiz.css";
 
