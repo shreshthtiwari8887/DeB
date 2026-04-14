@@ -1,5 +1,5 @@
 import React from 'react'
-import "./HomeCard.css"
+import "./Homecard.css"
 import quizimage from '../../assets/quiz.png'
 import courceimage from '../../assets/Kerala-Mural 1.png'
 import marketimage from '../../assets/handicraft_clg 1.png'
